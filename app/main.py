@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.routes import students
+from routes import students
 
 
 app = FastAPI()
