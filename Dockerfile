@@ -4,8 +4,8 @@ LABEL maintainer="Trevor Pierce"
 ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
-COPY ./app /app
-WORKDIR /app
+COPY ./app /student-data-api/app
+WORKDIR /student-data-api
 EXPOSE 8000
 
 RUN python -m venv /py && \
