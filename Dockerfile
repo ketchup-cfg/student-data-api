@@ -5,6 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 COPY ./requirements.txt /tmp/requirements.txt
 COPY ./requirements.dev.txt /tmp/requirements.dev.txt
+COPY ./.flake8 /student-data-api/app
 COPY ./app /student-data-api/app
 WORKDIR /student-data-api
 EXPOSE 8000

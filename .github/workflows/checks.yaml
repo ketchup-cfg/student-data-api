@@ -1,11 +1,11 @@
 ---
-name: Checks
+name: Quality Checks
 
 on: [push]
 
 jobs:
   test-lint:
-    name: Test and Lint
+    name: Test/Lint/Format
     runs-on: ubuntu-20.04
     steps:
       - name: Login to Docker Hub
@@ -16,6 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        run: docker-compose run --rm app sh -c "pytest"
+        run: docker-compose run --rm app sh -c "pytest app"
+      - name: format
+        run: docker-compose run --rm app sh -c "black app && isort app"
       - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: docker-compose run --rm app sh -c "flake8 app"
