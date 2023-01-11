@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         run: docker-compose run --rm app sh -c "pytest app"
-      - name: format
+      - name: Format
         run: docker-compose run --rm app sh -c "black app && isort app"
       - name: Lint
         run: docker-compose run --rm app sh -c "flake8 app"
